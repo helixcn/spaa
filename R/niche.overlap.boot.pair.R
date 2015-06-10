@@ -4,8 +4,8 @@ function (vectorA, vectorB, method = c("levins","schoener","petraitis","pianka",
 {
     method <- match.arg(method)
     if(!length(vectorA)==length(vectorB)){
-	    stop("Length of vectorA differs from lengths of vectorB")
-	}
+        stop("Length of vectorA differs from lengths of vectorB")
+    }
     booted <- rep(NA, times)
     obs <- niche.overlap.pair(vectorA, vectorB, method = method)
     
@@ -15,7 +15,7 @@ function (vectorA, vectorB, method = c("levins","schoener","petraitis","pianka",
     }
     
     result <- c(obs, mean(booted), sd(booted), quantile(booted, quant, na.rm = TRUE), times)
-	names(result) <- c("Observed","Boot mean","Boot std","Boot CI1", "Boot CI2", "times")
-	return(round(result,3))
+    names(result) <- c("Observed","Boot mean","Boot std","Boot CI1", "Boot CI2", "times")
+    return(round(result,3))
 }
 

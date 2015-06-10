@@ -45,11 +45,11 @@ function(matr)
    for (i in 1:nrow(chisq)){
        for (j in 1:ncol(chisq)){ 
             if (chisq[i, j] > 6.635){ 
-		        chisq[i, j] <- paste(chisq[i, j], "**") 
-				}
+                chisq[i, j] <- paste(chisq[i, j], "**") 
+                }
             if (chisq[i, j] < 6.635& chisq[i, j] > 3.841){ 
-		        chisq[i, j] <- paste(chisq[i, j], "*")
-				}
+                chisq[i, j] <- paste(chisq[i, j], "*")
+                }
         dd[i,j] <- a[i,j] * d[i,j] - b[i,j] * c[i,j]
         }
    }
@@ -57,22 +57,22 @@ function(matr)
    for (i in 1: nrow(a)){
        for (j in 1: ncol(a)){
            if (a[i,j] * d[i,j] >= b[i,j] * c[i,j]){ 
-		       AC[i,j] <- (a[i,j] * d[i,j] - b[i,j] * c[i,j])/
-			              ((a[i,j] + b[i,j])*(b[i,j] + d[i,j])) 
-			   }
+               AC[i,j] <- (a[i,j] * d[i,j] - b[i,j] * c[i,j])/
+                          ((a[i,j] + b[i,j])*(b[i,j] + d[i,j])) 
+               }
            if ( a[i,j]*d[i,j] < b[i,j]*c[i,j] & d[i,j] >= a[i,j]){ 
-		      AC[i,j] <- (a[i,j] * d[i,j] - b[i,j] * c[i,j])/
-			             ((a[i,j] + b[i,j])*(a[i,j] + c[i,j])) 
-			  }
+              AC[i,j] <- (a[i,j] * d[i,j] - b[i,j] * c[i,j])/
+                         ((a[i,j] + b[i,j])*(a[i,j] + c[i,j])) 
+              }
     
            if (b[i,j]*c[i,j] > a[i,j] * d[i,j] & d[i,j] < a[i,j] ){ 
-		      AC[i,j] <- (a[i,j] * d[i,j] - b[i,j] * c[i,j])/
-			             ((b[i,j] + d[i,j])*(d[i,j] + c[i,j]))}
+              AC[i,j] <- (a[i,j] * d[i,j] - b[i,j] * c[i,j])/
+                         ((b[i,j] + d[i,j])*(d[i,j] + c[i,j]))}
        }
    }
    result <- list(chisq=chisq, chisqass = dd, V=V, Ochiai=Ochiai, 
              Dice=Dice, Jaccard=Jaccard, Pearson = pearson, 
-			 Spearman = spearman, PCC=PCC, AC=AC )
+             Spearman = spearman, PCC=PCC, AC=AC )
    return(result)
 }
 

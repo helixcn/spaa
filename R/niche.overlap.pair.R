@@ -1,16 +1,16 @@
 niche.overlap.pair <- 
 function(vectA, vectB, method = c("pianka", "schoener","petraitis","czech","morisita", "levins") ){ 
       method <- match.arg(method)
-	  nij <- vectA
-	  pij <- nij/sum(nij)
+      nij <- vectA
+      pij <- nij/sum(nij)
       
-	  nkj <- vectB
-	  pkj <- nkj/sum(nkj)
+      nkj <- vectB
+      pkj <- nkj/sum(nkj)
       switch(method,
         levins = {
             upper <- sum(pij * pkj)
-	        lower <- sum(pij^2)
-	        result <- upper/lower
+            lower <- sum(pij^2)
+            result <- upper/lower
         },
         schoener = {
             result <- 1 - sum(abs(pij - pkj))/2

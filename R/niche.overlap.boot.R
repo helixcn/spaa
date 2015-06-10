@@ -7,8 +7,8 @@ function(mat, method = c("pianka", "schoener", "petraitis",  "czech", "morisita"
             booted <- niche.overlap.boot.pair(mat[,i], mat[,j],method = method, times = times, quant = quant)
             booted1 <- data.frame(booted)
             colnames(booted1) <- paste(colnames(mat)[i], "-", colnames(mat)[j], sep = "")
-            result <- cbind(result, booted1)	 
-     	}
+            result <- cbind(result, booted1)     
+         }
      }
      result <- result[,-1]
      return(t(result))
