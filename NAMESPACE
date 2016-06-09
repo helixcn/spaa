@@ -3,3 +3,6 @@
 
 # Export all names
 exportPattern(".")
+import(stats)
+import(graphics)
+import(utils)

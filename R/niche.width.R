@@ -40,12 +40,11 @@ function(mat, method = c("shannon","levins")){
     match.arg(method)
     if(method == "shannon"){
        result <- niche.width.shannon(mat)
+    } else {
+    if(method == "levins"){
+       result <- niche.width.levins(mat)
     }
-    else {
-          if(method == "levins"){
-             result <- niche.width.levins(mat)
-             }
-         }
+    }
     return(result)
 }
 
