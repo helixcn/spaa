@@ -9,6 +9,10 @@
 list2dist <-
 function (dat) 
 {
+  # This strips off "tbl_df" and "tbl" to ensure that column indexing works.
+  #
+  dat = data.frame(dat)
+  
   dat.name1 <- as.character(dat[, 1])
   dat.name2 <- as.character(dat[, 2])
   dat.value <- dat[, 3]
