@@ -3,13 +3,16 @@ Type: Package
 Title: SPecies Association Analysis
 Version: 0.2.2
 Date: 2016-06-09
-Authors@R: person("Jinlong", "Zhang", role = c("aut", "cre"),
-             email = "jinlongzhang01@gmail.com")
+Authors@R: c(
+    person("Jinlong", "Zhang", role = c("aut", "cre"), email = "jinlongzhang01@gmail.com"),
+    person("Andrew", "Collier", role = c("ctb"), email = "andrew@exegetic.biz")
+    )
 Author: Jinlong Zhang [aut, cre]
 Maintainer: Jinlong Zhang <jinlongzhang01@gmail.com>
 Description: Miscellaneous functions for analysing species association
         and niche overlap.
 License: GPL-2
 LazyLoad: yes
-Suggests: vegan
+Suggests: vegan,
+    testthat
 URL: https://github.com/helixcn/spaa
