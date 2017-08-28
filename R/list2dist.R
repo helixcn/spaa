@@ -36,7 +36,6 @@ function (dat)
     jcol = as.integer(cols[n])
     elements[irow, jcol] = dat.value[n]
   }
-  print(elements[1:5,1:5])
   #
   as.dist(t(elements), upper = TRUE)
 }
