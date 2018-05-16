@@ -1,42 +1,41 @@
 \name{niche.overlap.boot}
 \alias{niche.overlap.boot}
 \title{
-Boostrap of niche overlap
+Boostrap niche overlap indices
 }
 \description{
-Bootstrap of niche overlap between species.
+Bootstrap niche overlap indices
 }
 \usage{
-niche.overlap.boot(mat, method = c("pianka", "schoener", "petraitis",  
-    "czech", "morisita", "levins"), times = 999, quant = c(0.025, 0.975))
+niche.overlap.boot(mat, method = c("pianka", "schoener", "petraitis",
+    "czech", "morisita", "levins"), times = 1000, quant = c(0.025, 0.975))
 }
 \arguments{
   \item{mat}{
-A community data matrix with columns representing species, and rows representing sites.
+standard community matrix.
 }
   \item{method}{
-A character string indicating the index of niche overlap to be applied.
+character string specifying the index.
 }
   \item{times}{
-Interger, Number of bootstrap to be implemented.
+Interger, representing the number of bootstrap samples to generate.
 }
   \item{quant}{
-Quantile of bootstrap results, the confidence intervals.
+Quantile of the bootstrap values.
 }
 }
 \details{
-This function bootstraps the niche overlap within each pair of species. \
-pianka: Pianka's niche overlap index\
-schoener: Schoener's niche overlap index\
-petraitis: Petraitis' niche overlap index\
-czech: Czechanowski index \
-morisita: Morisita's overlap index\
-levins: Levin's overlap index\
+This function bootstraps the following niche overlap indices between each pair of species: \
+\code{schoener}: Schoener's niche overlap index\
+\code{petraitis}: Petraitis' niche overlap index\
+\code{czech}: Czechanowski index \
+\code{morisita}: Morisita's overlap index\
+\code{levins}: Levin's overlap index\
 see more information from Gotelli, N(2009).\
 }
 \value{
 
-a data frame with each row for each pair of species 
+a data frame with each row for each pair of species
 the columns are \code{"Observed", \
 "Boot mean", \
 "Boot std", \
@@ -63,11 +62,10 @@ Jinlong Zhang \email{jinlongzhang01@gmail.com}
 data(datasample)
 niche.overlap.boot(datasample[,1:4], method = "pianka")
 niche.overlap.boot(datasample[,1:4], method = "schoener")
-niche.overlap.boot(datasample[,1:4], method = "czech") 
+niche.overlap.boot(datasample[,1:4], method = "czech")
 niche.overlap.boot(datasample[,1:4], method = "levins")
 }
 
 \keyword{ niche}
 \keyword{ bootstrap }
 \keyword{ overlap }
-

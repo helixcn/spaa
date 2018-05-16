@@ -2,10 +2,10 @@
 \alias{dist2list}
 
 \title{
-Convert distance matrix to pairwised list
+Convert distance matrix to pairwised list (Deprecated)
 }
 \description{
-Convert distance matrix to pairwised list
+Convert distance matrix to pairwised list. Use
 }
 \usage{
 dist2list(dist)
@@ -36,7 +36,7 @@ Jinlong Zhang \email{jinlongzhang01@gmail.com}
 ##dist2list() example
 x <- matrix(rnorm(100), nrow=5)
 sampledata <- dist(x)
-ddd <- dist2list(sampledata)
+dist2list(sampledata)
 
 }
 

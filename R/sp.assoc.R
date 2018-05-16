@@ -1,14 +1,14 @@
 sp.assoc <-
 function(matr)
-{  
+{
    if(any(is.na(matr))){
        matr <- na.omit(matr)
        cat("The data matrix contains NA, and have been removed.\n")
    }
    matr[matr>1] <- 1
    frq <- freq.calc(matr)
-   N <- nrow(matr) ##Number of plots
-   S <- ncol(matr) ##Number of species
+   N <- nrow(matr) ## Number of plots
+   S <- ncol(matr) ## Number of species
    n <- apply(matr, 2, sum) ## Number of plots occupied by certain species
    Tj <- apply(matr, 1, sum) ## Total number of species for each plot
    t <- mean(Tj) ## Mean species number for all the plots
@@ -20,4 +20,3 @@ function(matr)
    sigmaTsq = sigmaTsq, STsq = STsq, var.ratio = VR, W = W)
    return(result)
 }
-

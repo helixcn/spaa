@@ -2,10 +2,10 @@
 \alias{sp.pair}
 
 \title{
-Species association between each pair of species 
+Species association between each pair of species
 }
 \description{
-Calculate species association between each pair of species.
+Compute species association between each pair of species.
 }
 \usage{
 sp.pair(matr)
@@ -13,45 +13,33 @@ sp.pair(matr)
 
 \arguments{
 \item{matr}{
-Standard species matrix, with rows for plots and columns for species.
+Standard community matrix, with rows representing sites and columns representing species.
 }
 }
 \details{
-Assume we have speciesA and speciesB, \code{a}, \code{b}, \code{c}, \code{d} that corresponding to the co-occurrence could be used to conduct the species association analysis between the two species. 
+If \code{a}, \code{b}, \code{c}, \code{d} denote the co-occurrence the two species A and B, where:
 
-\code{a} = number of plots both occupied by speciesA and speciesB.
+\code{a} = number of plots occupied both by A and B.
 
-\code{b} = number of plots only found speciesA.
+\code{b} = number of plots only have A.
 
-\code{c} = number of plots only found speciesB.
+\code{c} = number of plots only have sB.
 
-\code{d} = number of plots without speciesA or speciesB.
+\code{d} = number of plots without A or B.
 
 \code{N} = \code{a+b+c+d}
 
+Then, it is possible to compute:
 
-This function are using the following formula:
+Chi square (Yate's correction): \code{chi^{2}=((((a*d-b*c)-0.5*N)^2)*N)/(a+b)*(a+c)*(b+d)*(c+d)}
 
-Chi square (Yate's correction):
+V ratio: \code{V = ((a+d)-(b+c))/(a + b + c + d)}
 
-\code{chi^{2}=((((a*d-b*c)-0.5*N)^2)*N)/(a+b)*(a+c)*(b+d)*(c+d)}
+Jaccard index: \code{Jaccard =a/(a + b + c)}
 
-V ratio:
+Ochiai index: \code{Ochiai = a/sqrt((a+b)*(a+c))}
 
-\code{V = ((a+d)-(b+c))/(a + b + c + d)}
-
-Jaccard index:
-
-\code{Jaccard =a/(a + b + c)}
-
-Ochiai index:
-
-\code{Ochiai = a/sqrt((a+b)*(a+c))}
-
-Dice index:
-
-\code{Dice = 2*a/(2*a + b + c)}
-
+Dice index: \code{Dice = 2*a/(2*a + b + c)}
 
 The Association Coefficient(\code{AC}):
 
@@ -74,16 +62,17 @@ Point correlation coefficient
 \code{PCC = {a*d-b*c}/{(a+b)*(a+c)*(c+d)*(b+d)}}
 
 }
+
 \value{
 
-\item{chisq}{chi square matrix}
-\item{chisqass}{chi square matrix information}
-\item{V}{\code{V} Value indicating species association is positive or negative}
+\item{chisq}{Chi square matrix}
+\item{chisqass}{information for the Chi square matrix }
+\item{V}{\code{V} positive or negative association}
 \item{Ochiai}{Ochiai's index}
 \item{Dice}{Dice's index}
 \item{Jaccard}{Jaccard's index}
-\item{Pearson}{Pearson's correlation}
-\item{Spearman}{Spearman's rank correlation}
+\item{Pearson}{Pearson's correlation coefficient}
+\item{Spearman}{Spearman's rank correlation coefficient}
 \item{PCC}{Point correlation coefficient}
 \item{AC}{Association coefficient}
 
@@ -93,14 +82,14 @@ Zhang Qiaoying, Peng Shaolin, Zhang Sumei, Zhang Yunchun, Hou Yuping.(2008). Ass
 
 Zhou XY, Wang BS, Li MG, Zan QJ.(2000). An analysis of interspecific associations in secondary  succession forest communities in Heishiding Nature Reserve, Guangdong Province. Acta Phytoecologica Sinica. 24:332-339.
 
-JIAN Minfei, LIU qijing, ZHU du, YOU hai.(2009). Inter-specific correlations among dorminant populations of tree layer species in evergreen broad-leaved forest in Jiulianshan Mountain of subtropical China. Chinese Journal of Plant Ecology. 33: 672-680 
+JIAN Minfei, LIU qijing, ZHU du, YOU hai.(2009). Inter-specific correlations among dorminant populations of tree layer species in evergreen broad-leaved forest in Jiulianshan Mountain of subtropical China. Chinese Journal of Plant Ecology. 33: 672-680
 }
 \author{
 Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 
 \seealso{
-See Also as \code{\link{sp.assoc}} for species association for total species.
+See Also as \code{\link{sp.assoc}} for computing association for all the species.
 }
 \examples{
 data(testdata)

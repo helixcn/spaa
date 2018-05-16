@@ -1,10 +1,10 @@
 \name{geodist}
 \alias{geodist}
 \title{
-Hight precision Great circle distance between two places
+Hight precision great circle distance between two sites (Deprecated)
 }
 \description{
-Hight precision Great circle distance between two places assuming the earth is elliptic sphere. 
+Hight precision great circle distance between two sites based on Jean Meeus's Astronomical Algorithms.
 }
 \usage{
 geodist(L1, phi1, L2, phi2)
@@ -42,7 +42,6 @@ Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 \examples{
 
-## geodist() example
 ## Paris
 L1 = deg2dec(-2,20,14)
 phi1 = deg2dec(48, 50, 11)

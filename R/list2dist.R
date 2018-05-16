@@ -1,5 +1,6 @@
 list2dist <-
 function(dat){
+    .Deprecated(new = "liste", package="simba")
     dat.name1 <- as.character(dat[,1])
     dat.name2 <- as.character(dat[,2])
     dat.value <- dat[,3]
@@ -10,7 +11,7 @@ function(dat){
     dim(elements) <- c(length(total.names),length(total.names))
     rownames(elements) <- total.names
     colnames(elements) <- total.names
-    
+
     for(i in 1:length(total.names)){
          for(j in 1:length(total.names)){
               for(k in 1:length(dat.name1)){
@@ -23,4 +24,3 @@ function(dat){
     res <- as.dist(t(elements))
     return(res)
 }
-

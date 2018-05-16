@@ -1,62 +1,60 @@
 \name{plotlowertri}
 \alias{plotlowertri}
 \title{
-Plotting lower semi matrix
+Generate a graphs showing correlation matrix (lower semi matrix) (Deprecated)
 }
 \description{
-Function for plotting lower semi matrix. These plots are often used to illustrate the relationship in Pearson's correlation, similarity or dissimilarity index between sites or species. 
+Generate graphs (lower semi matrix) showing lower semi matrix. These graphs are often used to show the structure of a correlation, similarity or dissimilarity matrix.
 }
 \usage{
-plotlowertri(input, valuename = "r", 
-pchlist = c(19, 17, 15, 1, 5, 2, 7), interval = 6, 
-cex = 1, ncex = 1, int =1.2, add.number = TRUE, 
-size = FALSE, add.text = FALSE, show.legend = TRUE, 
+plotlowertri(input, valuename = "r",
+pchlist = c(19, 17, 15, 1, 5, 2, 7), interval = 6,
+cex = 1, ncex = 1, int =1.2, add.number = TRUE,
+size = FALSE, add.text = FALSE, show.legend = TRUE,
 digits = 2)
 
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{input}{
-The \code{input} data, often the results of correlation matrix, can also be class \code{dist} object.
+The \code{input}, often a correlation or a distance matrix.
 }
   \item{valuename}{
-Value name that will be used in the legend.
+Name of the value that to show in the legend.
 }
   \item{pchlist}{
-The types of point shape to plot see \code{pch par()}. 
+A numberic vector specifying the shapes of points, see \code{pch par()}.
 }
   \item{interval}{
-Number of intervals to illustrate the shape of points
+Types of point shapes to show
 }
   \item{cex}{
-Point size
+A number specifying the text size in the legend
 }
   \item{ncex}{
-Text size for the add.number, which appeared at the top of each column.
+Size of the text shown above each column.
 }
   \item{int}{
-Row space between lines in legend
+Space between lines within the legend
 }
   \item{add.number}{
-Species number for each column.
+If the column number should be shown
 }
   \item{size}{
-Whether the size of points would change according to value.
+Whether the size of points should change with the value
 }
   \item{add.text}{
-To add value to the grid.
+Logical, If the number should be shown in the grid.
 }
   \item{show.legend}{
-Whether the legend should be drawn.
+Logical, If the legend should be appear.
 }
   \item{digits}{
-Number of digits of for each interval
+Number of digits for the label of each interval.
 }
 }
 \details{
-If the matrix contains less than 15 rows/columns, you may have to adjust the row space between the text lines in the legend, using argument \code{int}. Data in class \code{dist} can be include, and will be converted to matrix at first internally.
-
-The lower matrix plot illustrating Pearson's Correlation between each pair of species. Note some value didn't appeared in the plots, may have appeared the legend. This is due to the distribution of data. Be careful in selection of intervals. In this situation you may set \code{show.legend = FALSE}, and add the legend manually. This may be fixed in the future.
+In the legend, space between lines could be adjusted by specifying \code{int}.
 }
 \value{
 lower matrix plot
@@ -70,7 +68,7 @@ Zhang Qiaoying, Peng Shaolin, Zhang Sumei, Zhang Yunchun, Hou Yuping.(2008). Ass
 Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 \seealso{
-See Also \code{\link{plotnetwork}}
+See Also \code{\link{plotnetwork}}, \code{\link[corrplot]{corrplot}}, \code{\link[ggcorrplot]{ggcorrplot}},
 }
 \examples{
 data(testdata)
@@ -82,21 +80,21 @@ plotlowertri(result$Pearson, int = 0.5, cex=1.5)
 title("Pearson Correlation Lower Matrix Plot")
 
 ## Change the size of points and reset the intervals.
-## Warning: The lower matrix plot illustrating Pearson 
-## Correlation between each pair of species. Note the 
-## triangle didn't appeared in the plots, but have been 
-## added to the legend. This is due to the distribution 
+## Warning: The lower matrix plot illustrating Pearson
+## Correlation between each pair of species. Note the
+## triangle didn't appeared in the plots, but have been
+## added to the legend. This is due to the distribution
 ## of data. Be careful in selection of intervals.
 
 
-plotlowertri(result$Pearson, int = 0.5, cex=1.5, 
+plotlowertri(result$Pearson, int = 0.5, cex=1.5,
 interval = 4, pchlist = c(19, 17, 15, 1, 5), size = TRUE)
 
 title("Pearson Correlation Lower Matrix Plot")
 
 ## "Pure" dots, may have to add legend manually...
-plotlowertri(result$Pearson, int = 0.5, cex=2.5, 
-interval = 4, pchlist = rep(19, 5), size = TRUE, 
+plotlowertri(result$Pearson, int = 0.5, cex=2.5,
+interval = 4, pchlist = rep(19, 5), size = TRUE,
 show.legend = FALSE)
 
 title("Pearson Correlation Lower Matrix Plot")
@@ -107,7 +105,7 @@ library(vegan)
 data(BCI)
 ## select the top 30 species according to relative frequency.
 sub <- sub.sp.matrix(BCI, common = 30)
-## Original 
+## Original
 plotlowertri(cor(sub))
 
 ## Change size

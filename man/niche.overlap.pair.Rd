@@ -1,24 +1,24 @@
 \name{niche.overlap.pair}
 \alias{niche.overlap.pair}
 \title{
-Niche overlap between one pair of species.
+Compute niche overlap index between two species
 }
 \description{
-Compute niche overlap index between one pair of species. Users are encouraged to used \code{\link{niche.overlap}} istead of this function.
+Compute niche overlap index between two species. This is an internal function, used \code{\link{niche.overlap}} instead.
 }
 \usage{
-niche.overlap.pair(vectA, vectB, method = c("pianka", 
+niche.overlap.pair(vectA, vectB, method = c("pianka",
      "schoener","petraitis","czech","morisita", "levins"))
 }
 \arguments{
   \item{vectA}{
-A numerical vector including species A's abundance or value of importance.
+A numeric vector containing species A's abundance or importance value
 }
   \item{vectB}{
-A numerical vector including species B's abundance or value of importance.
+A numeric vector containing species B's abundance or importance value
 }
   \item{method}{
-Niche overlap index to be applied.
+Niche overlap index
 }
 }
 
@@ -27,7 +27,7 @@ None
 }
 
 \value{
-Niche overlap index.
+The niche overlap index
 }
 
 \references{
@@ -48,7 +48,6 @@ Jinlong Zhang \email{jinlongzhang01@gmail.com}
 
 \examples{
 
-### niche.overlap.pair() example
 data(datasample)
 niche.overlap.pair(datasample[,1],datasample[,2], method = "levins")
 

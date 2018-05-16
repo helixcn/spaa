@@ -7,22 +7,22 @@ Niche overlap between each pair of species
 Compute niche overlap between each pair of species.
 }
 \usage{
-niche.overlap(mat, method = c("levins", "schoener", 
+niche.overlap(mat, method = c("levins", "schoener",
        "petraitis", "pianka", "czech", "morisita"))
 }
 
 \arguments{
 
   \item{mat}{
-A community data matrix with each column for each species, and each row for each plot.
+A community matrix with columns representing species, and rows representing plots.
 }
   \item{method}{
-Index of niche overlap to be specified.
+A string specifying the name of the index.
 }
 
 }
 \details{
-To be added.
+To add.
 }
 \value{
 A distance matrix contains niche overlap index between each pair of species.
@@ -43,11 +43,10 @@ Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 \examples{
 
-### niche.overlap.boot() example
 data(datasample)
 niche.overlap(datasample, method = "levins")
 
 }
 
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ niche }
+\keyword{ overlap }

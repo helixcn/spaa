@@ -5,24 +5,22 @@
 Niche width
 }
 \description{
-Compute niche width of the species in a community.
+Compute niche width for all the species in a community.
 }
 \usage{
 niche.width(mat, method = c("shannon", "levins"))
 }
 \arguments{
   \item{mat}{
-A community data matrix with each column for each species, and each row for each plot.
+A community matrix with columns representing species, and rows representing plots.
 }
   \item{method}{
-Index of niche width.
+Character string showing the name of the index.
 }
 }
-\details{
-To be added
-}
+
 \value{
-A vetor contains niche width index of species in community.
+A vetor containing niche width for all the species in the community.
 }
 \references{
 Zhang Jin-tun,(2004 ) Quantitative Ecology, Science Press, Beijing
@@ -32,12 +30,11 @@ Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 
 \seealso{
-\code{\link{niche.overlap}} for niche overlap 
+\code{\link{niche.overlap}} for niche overlap
 }
 
 \examples{
 
-# ### niche.width() example 
 data(datasample)
 niche.width(datasample, method = "levins")
 niche.width(datasample, method = "shannon")

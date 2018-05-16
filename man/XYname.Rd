@@ -33,7 +33,6 @@ Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 \examples{
 
-## XYname() example
 XYname(4,6)
 
 }

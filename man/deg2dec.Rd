@@ -1,7 +1,7 @@
 \name{deg2dec}
 \alias{deg2dec}
 \title{
-Degree to decimal
+Convert Degree to decimal format (Deprecated).
 }
 \description{
 Convert latitude or longitude from degree to decimal format
@@ -32,7 +32,7 @@ Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 
 \note{
-Places with eastern hemisphere should have longitude and southern hemisphere less than zero. 
+Places with eastern hemisphere should have longitude and southern hemisphere less than zero.
 }
 
 \examples{
@@ -41,6 +41,7 @@ Places with eastern hemisphere should have longitude and southern hemisphere les
 ##Paris
 L1 = deg2dec(-2,20,14)
 phi1 = deg2dec(48, 50, 11)
+
 ##Washington DC
 L2 = deg2dec(77,03,56)
 phi2 = deg2dec(38,55,17)

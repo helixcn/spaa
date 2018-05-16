@@ -1,57 +1,43 @@
 \name{sp.assoc}
 \alias{sp.assoc}
 \title{
-Total species association
+Analyzing species association
 }
 \description{
-Calculate species association
+Analyzing species association
 }
 \usage{
 sp.assoc(matr)
 }
 \arguments{
   \item{matr}{
-standard species matrix , with rows for plots and columns for species.
+standard community matrix , with rows representing sites and columns representing species.
 }
 }
 \details{
-Calculate species association using the following formula.
+Computations are based on the following formula.
 
-Number of plots.
+If, \code{N}: Number of plots.
 
-\code{N} 
+\code{S}: Number of species.
 
-Number of species.
+\code{n}: Number of plots occupied by certain species.
 
-\code{S}
+\code{Tj}: total number of species for each plot.
+s
+\code{t}: mean species number for all the plots.
 
-Number of plots occupied by certain species.
 
-\code{n}
+Then:
+Variance of species relative frequency is: \code{sigma^{2}{T}= sum{i}=1^{s}P{i}(1-P{i})}.
 
-total number of species for each plot.
+Variance of species number is: \code{ S^{2}{T}=({1}{N})sum{j=1}^{N}(T{j}-t)^{2} }.
 
-\code{Tj}
+Species relative frequency: \code{P{i}={n{i}}{N}}.
 
-mean species number for all the plots. 
+Variance ratio:
 
-\code{t} 
-
-Variance of species relative frequency:
-
-\code{sigma^{2}{T}= sum{i}=1^{s}P{i}(1-P{i})}.
-
-Variance of species number:
-
-\code{ S^{2}{T}=({1}{N})sum{j=1}^{N}(T{j}-t)^{2} }.
-
-Species relative frequency
-
-\code{P{i}={n{i}}{N}}.
-
-Variance ratio: 
-
-If \code{VR > 1} Positively associated, 
+If \code{VR > 1} Positively associated,
 
 If \code{VR < 1} Negative associated
 
@@ -59,15 +45,14 @@ If \code{VR < 1} Negative associated
 
 \code{W}: used in comparison with chi square with n degrees of freedom.
 
-\code{ W = VR * N } 
+\code{ W = VR * N }
 
 }
 
 \value{
-Return 
 Variance ratio, W, Chisq, etc, see \code{details}
 \item{pi}{Species frequency}
-\item{N }{Number of plots}
+\item{N}{Number of plots}
 \item{S}{Number of species}
 \item{Tj}{Total number of species for each plot}
 \item{Numspmean}{Mean number of species}

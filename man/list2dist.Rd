@@ -15,7 +15,7 @@ dataframe with three columns
 }
 }
 \details{
-Dataframe with first column as the column names in the distance matrix, second column as the rownames in the distance matrix, third column the values.
+Dataframe with first column containing the column names fofor the distance matrix, second column the rownames of the distance matrix, third column the values.
 }
 \value{
 distance matrix
@@ -40,4 +40,3 @@ list2dist(ddd)
 
 }
 \keyword{ distance }
-

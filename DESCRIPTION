@@ -7,7 +7,7 @@ Authors@R: person("Jinlong", "Zhang", role = c("aut", "cre"),
              email = "jinlongzhang01@gmail.com")
 Author: Jinlong Zhang [aut, cre]
 Maintainer: Jinlong Zhang <jinlongzhang01@gmail.com>
-Description: Miscellaneous functions for analysing species association
+Description: Miscellaneous functions for analyzing species association
         and niche overlap.
 License: GPL-2
 LazyLoad: yes

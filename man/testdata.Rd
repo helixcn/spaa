@@ -2,14 +2,14 @@
 \alias{testdata}
 \docType{data}
 \title{
-Example Data
-}
+A sample dataset
+s}
 \description{
-Data used in example in list format.
+A sample dataset
 }
 \usage{data(testdata)}
 \format{
-  A data frame with 11 observations on the following 3 variables.
+  A dataframe with 11 observations on the following 3 variables.
   \describe{
     \item{\code{plotname}}{a factor with levels \code{plot1}, \code{plot2}, \code{plot3}.}
     \item{\code{species}}{a factor with levels \code{sp1} to \code{sp7}. }

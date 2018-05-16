@@ -1,39 +1,36 @@
 \name{niche.overlap.boot.pair}
 \alias{niche.overlap.boot.pair}
 \title{
-Niche overlap boostrap utility function
+Boostrap the niche overlap indices
 }
 \description{
-Compute the bootstrap value between two vectors. This is a internal function called by \code{niche.overlap.boot}, users are encouraged to use the latter function.
+bootstrap the niche overlap indices between a pair of species. This is an internal function used by \code{niche.overlap.boot}, use \code{niche.overlap.boot} instead.
 }
 \usage{
-niche.overlap.boot.pair(vectorA, vectorB, method = c("levins", 
-     "schoener", "petraitis", "pianka", "czech", "morisita"), 
-      times = 999, quant = c(0.025, 0.975))
+niche.overlap.boot.pair(vectorA, vectorB, method = c("levins",
+     "schoener", "petraitis", "pianka", "czech", "morisita"),
+      times = 1000, quant = c(0.025, 0.975))
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{vectorA}{
-A numerical vector including species A's abundance or value of importance.
+A numeric vector containing species A's abundance or importance value.
 }
   \item{vectorB}{
-A numerical vector including species B's abundance or value of importance.
+A numeric vector containing species B's abundance or importance value.
 }
   \item{method}{
-Niche overlap indeces to be applied.
+Name of the index to use.
 }
   \item{times}{
 Number of bootstraps
 }
   \item{quant}{
-Confidence interval of the bootstrap results.
+Confidence intervals of the bootstrap results.
 }
-}
-\details{
-To do.
-}
+
 \value{
-This function will return a vector including the following elements:\
+This function will return a vector containing:\
 \code{"Observed", \
 "Boot mean", \
 "Boot std", \
@@ -49,7 +46,7 @@ Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 
 \note{
-Users are ecouraged to call \code{\link{niche.overlap.boot}} rather than this function.
+This is an internal function, please use \code{niche.overlap.boot}.
 }
 
 \seealso{
@@ -57,9 +54,8 @@ Users are ecouraged to call \code{\link{niche.overlap.boot}} rather than this fu
 }
 \examples{
 
-### niche.overlap.boot.pair() example
 data(datasample)
-niche.overlap.boot.pair(datasample[,1],datasample[,2], method = "levins")
+niche.overlap.boot.pair(datasample[,1], datasample[,2], method = "levins")
 
 }
 

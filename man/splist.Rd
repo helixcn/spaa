@@ -2,10 +2,10 @@
 \alias{splist}
 \docType{data}
 \title{
-species list used in function add.col()
+A sample dataframe showing species taxonomic information (Deprecated)
 }
 \description{
-A species check list example to be used in add.col()
+A sample dataframe containing the checklist of species used in add.col()
 }
 \usage{data(splist)}
 \format{
@@ -28,7 +28,7 @@ data(testdata)
 add.col(inputA = testdata, inputB = splist, add = "genera",
 according = "species")
 ## add family from dataframe B to dataframe A.
-add.col(inputA = testdata, inputB = splist, add = "family", 
+add.col(inputA = testdata, inputB = splist, add = "family",
 according = "species")
 
 }
