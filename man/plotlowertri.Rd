@@ -68,7 +68,7 @@ Zhang Qiaoying, Peng Shaolin, Zhang Sumei, Zhang Yunchun, Hou Yuping.(2008). Ass
 Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 \seealso{
-See Also \code{\link{plotnetwork}}, \code{\link[corrplot]{corrplot}}, \code{\link[ggcorrplot]{ggcorrplot}},
+See Also \code{\link{plotnetwork}}
 }
 \examples{
 data(testdata)
