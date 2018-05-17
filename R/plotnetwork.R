@@ -8,7 +8,6 @@ function(datainput, interval = 8,
          number.label = TRUE, text.label = TRUE,
          linecol = c("red", "black"), ...){
 
-    .Deprecated(new = "ggnet", package= "ggplot2" )
     datainput <- as.matrix(datainput)
     if (!nrow(datainput)==ncol(datainput)){
         stop("The input is not a square matrix. \n")

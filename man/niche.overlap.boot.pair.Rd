@@ -28,6 +28,7 @@ Number of bootstraps
   \item{quant}{
 Confidence intervals of the bootstrap results.
 }
+}
 
 \value{
 This function will return a vector containing:\

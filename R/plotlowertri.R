@@ -2,7 +2,6 @@ plotlowertri <-
 function(input, valuename = "r", pchlist = c(19, 17, 15, 1, 5, 2, 7),
          interval = 6, cex = 1, ncex = 1, int =1.2, add.number = TRUE,
          size = FALSE, add.text = FALSE, show.legend = TRUE, digits = 2){
-  .Deprecated(new = "corrplot", package="corrplot")
    if (!is.matrix(input)){
        input = as.matrix(input)
            if (any(!is.numeric(input))){

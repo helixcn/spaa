@@ -13,6 +13,7 @@ data2mat(data = data)
   \item{data}{
 A dataframe with the the following columns: \code{species}, \code{plots} or \code{sites}, \code{abundance}.
 }
+}
 
 \value{
 Return a community matrix ready for computing diversity indices.

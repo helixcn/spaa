@@ -36,12 +36,7 @@ see more information from Gotelli, N(2009).\
 \value{
 
 a data frame with each row for each pair of species
-the columns are \code{"Observed", \
-"Boot mean", \
-"Boot std", \
-"Boot CI1",  \
-"Boot CI2",  \
-"times"} \
+the columns are \code{"Observed", "Boot mean", "Boot std", "Boot CI1",  "Boot CI2",  "times"} 
 }
 \references{
 
