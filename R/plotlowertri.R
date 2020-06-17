@@ -58,17 +58,17 @@ function(input, valuename = "r", pchlist = c(19, 17, 15, 1, 5, 2, 7),
            }else{
                for (n in 2:(length(limit))){
                     if (input[i,j] >= limit[n]&input[i,j] < limit[n-1]){
-                       pch = pchlist[n]
+                           pch = pchlist[n]
                        }
                 }
             }
            if(size){
-           points(x,y, pch = pch, cex = cex*abs(input[i,j]))
+               points(x,y, pch = pch, cex = cex*abs(input[i,j]))
            }
            else { points(x,y, pch = pch, cex = cex) }
            if(add.text) {
-             text(x,y+0.25, pch)
-             text(x,y-0.25, round(input[i,j], digits))
+                text(x,y+0.25, pch)
+                text(x,y-0.25, round(input[i,j], digits))
            }
        }
       if (add.number){
@@ -85,19 +85,19 @@ function(input, valuename = "r", pchlist = c(19, 17, 15, 1, 5, 2, 7),
              ylegend <- nrow(input) - k * int
              points( ncol(input)*0.6, ylegend, pch = pchlist[k+1] )
              if(k == 0){
-              text(xlegend*0.68, ylegend, paste(formatC(sprintf("%.2f",limit[k + 1]), width = 5)))
-              text(xlegend*0.76, ylegend, expression(""<=""))
-              text(xlegend*0.8,  ylegend, valuename)
+                 text(xlegend*0.68, ylegend, paste(formatC(sprintf("%.2f",limit[k + 1]), width = 5)))
+                 text(xlegend*0.76, ylegend, expression(""<=""))
+                 text(xlegend*0.8,  ylegend, valuename)
              }
              if(!k == 0 & !k == length(limit)){
-              text(xlegend*0.88, ylegend, paste("<", formatC(sprintf("%.2f", limit[k]), width = 5)))
-              text(xlegend*0.8,  ylegend, valuename)
-              text(xlegend*0.68, ylegend, paste(formatC(sprintf("%.2f", limit[k+1]), width = 5)))
-              text(xlegend*0.76, ylegend, expression(""<=""))
+                 text(xlegend*0.88, ylegend, paste("<", formatC(sprintf("%.2f", limit[k]), width = 5)))
+                 text(xlegend*0.8,  ylegend, valuename)
+                 text(xlegend*0.68, ylegend, paste(formatC(sprintf("%.2f", limit[k+1]), width = 5)))
+                 text(xlegend*0.76, ylegend, expression(""<=""))
               }
              if(k == length(limit)){
-              text(xlegend*0.88, ylegend , paste("<", formatC(sprintf("%.2f",limit[k]), width = 5)))
-              text(xlegend*0.8, ylegend, valuename)
+                 text(xlegend*0.88, ylegend , paste("<", formatC(sprintf("%.2f",limit[k]), width = 5)))
+                 text(xlegend*0.8, ylegend, valuename)
               }
           }
        }

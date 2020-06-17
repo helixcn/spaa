@@ -1,8 +1,8 @@
 Package: spaa
 Type: Package
 Title: SPecies Association Analysis
-Version: 0.3.0
-Date: 2018-05-17
+Version: 0.3.1
+Date: 2020-06-17
 Authors@R: person("Jinlong", "Zhang", role = c("aut", "cre"),
              email = "jinlongzhang01@gmail.com")
 Author: Jinlong Zhang [aut, cre]
@@ -14,4 +14,3 @@ LazyLoad: yes
 Suggests: vegan
 URL: https://github.com/helixcn/spaa
 NeedsCompilation: no
-Packaged: 2018-05-17 01:38:51 UTC; jlzhang

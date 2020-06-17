@@ -7,85 +7,83 @@ Plot correlation network (Deprecated)
 Plotting correlation network showing the relationship between each pair of sites connected by segments. The points are arranged in a circle.
 }
 \usage{
-plotnetwork(datainput, interval = 8, xlim = c(-2.5,5),
-ylim=c(-3.2,3.2), lty = c(1,2,3,4,4,3,2,1,5), value = "r",
-legendx = 3, legendy = 0, right = 1.2, intcept = 0.22,
-left = 0.35, linelength = 0.3, cex = 3, lwd = 1.5,
-show.legend = TRUE, digits = 2, dit = 1.2,
-number.label = TRUE, text.label = TRUE,
-linecol = c("red", "black"), ...)
+plotnetwork(datainput, n_breaks = 8, xlim = c(-2.5, 5),
+    ylim = c(-2.5, 2.5), node_size = 3, lwd.var = TRUE,
+    lwd = 4, dit = 1.2,
+    show.node = TRUE, show.text.label = TRUE,
+    linecol = c("orange", "blue"),show.legend = TRUE,
+    valuename = "r", legendx = 3,
+    legendy = 0, legend_line_space = 1,
+    legend_linelength = 0.3,     adjust_legend_x = 0,
+    adjust_legend_y = 0,digits = 2, ... )
 }
 \arguments{
   \item{datainput}{
-A correlation matrix
+The correlation matrix, usually a lower matrix
 }
-  \item{interval}{
-Number of intervals indicating how to cut the data into different categories
-}
+  \item{n_breaks}{
+    Number of types of segments to show the correlation, note interval should <12
+    }
   \item{xlim}{
-The x range of the plot
-}
+    horizontal range of the canvas}
   \item{ylim}{
-The y range of the plot
-}
-  \item{lty}{
-A numeric vector showing the styles of lines used to connect the points, must have n+1 elements.
-}
-  \item{value}{
-Value of the matrix, should be a character, will used in legend.
-}
-  \item{legendx}{
-Coordinate X for the Legend
-}
-  \item{legendy}{
-Coordinate Y for the Legend
-}
-  \item{right}{
-Move legend to the right
-}
-  \item{intcept}{
-Specify the line space in the legend.
-}
-  \item{left}{
-Move legend to the left
-}
-  \item{linelength}{
-Length of the line in the legend.
-}
-  \item{cex}{
-Point size for each circle.
-}
+    vertical range of the canvas}
+  \item{node_size}{
+    size of the nodes}
+  \item{lwd.var}{
+    logical, if the segments width should vary with the absolute value
+    }
   \item{lwd}{
-Line width for each circle.
-}
-  \item{\dots}{
-Other arguments to be passed from.
-}
-  \item{show.legend}{
-Whether the legend should be drawn.
-}
-  \item{digits}{
-Number of digits displayed in legend.
-}
+    width of the segments for connecting the sites, default 1
+    }
   \item{dit}{
-Distance of text labels from each corner.
-}
-  \item{number.label}{
-Whether the number label should be drawn.
-}
-  \item{text.label}{
-Whether the text label should be drawn.
-}
+    Distance of text labels from each corner.
+    }
+  \item{show.node}{
+    Whether the nodes in the figure should be labeled
+    }
+  \item{show.text.label}{
+    Whether the text label should be drawn.
+    }
   \item{linecol}{
-Colours of the lines specified. The positive correlation will be drawn in the first colour specified.
-}
-
+    Colours showing positve or negative correlation. The lines representing positive correlations use the first element
+    }
+  \item{show.legend}{
+    If the legend should be shown
+    }
+  \item{valuename}{
+    Name of the variable shown in the legend
+    }
+  \item{legendx}{
+    the starting position of the legend x
+    }
+  \item{legendy}{
+    the starting position of the legend y
+    }
+  \item{legend_line_space}{
+    the space between the lines in the legend
+    }
+  \item{legend_linelength}{
+    length of the segment in the legend
+    }
+  \item{adjust_legend_x}{
+    adjusting the position of legend (x)
+    }
+  \item{adjust_legend_y}{
+    adjusting the position of legend (y)
+    }
+  \item{digits}{
+    Number of disgits shown in the legend, it will be used in generating the breaks as well
+    }
+  \item{...}{
+    other parameters related with plot.default
+    }
 }
 \details{
 This function could be used to plot the pairwise connections between less than 20 sites
 ( above 20 is not recommended since there would be too many connections).
 
-The lines will be in red or blue, according the sign of the value of association. Users can adjust the line style and legends based on their requirements.
+The lines will be in orange or blue, according the sign of the value.
 }
 \value{
 Correlation network plots.
@@ -102,8 +100,10 @@ spmatrix <- data2mat(testdata)
 result <- sp.pair(spmatrix)
 plotnetwork(result$Pearson)
 
-plotnetwork(result$Pearson, linecol = c("orange", "blue"),
-number.label = FALSE)
+plotnetwork(result$Pearson, linecol = c("red", "black"))
+
+plotnetwork(result$Pearson, n_breaks = 7,  node_size = 4,  lwd.var = FALSE, dit = 0.8, show.node = FALSE, show.text.label = FALSE, linecol = c("red", "black"), show.legend = TRUE, valuename = "r", legendx = 3, legend_line_space = 0.5, legend_linelength = 0.5, adjust_legend_x = -1)
+
 
 title("Pearson Correlation Network")
 }

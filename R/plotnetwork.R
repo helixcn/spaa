@@ -1,48 +1,58 @@
 plotnetwork <-
-function(datainput, interval = 8,
-         xlim = c(-2.5, 5), ylim=c(-3.2,3.2),
-         lty = c(1,2,3,4,4,3,2,1,5),value = "r",
-         legendx = 3, legendy = 0, right = 1.2,
-         intcept = 0.22, left = 0.35, linelength = 0.3, cex = 3,
-         lwd = 1.5, show.legend = TRUE, digits = 2, dit = 1.2,
-         number.label = TRUE, text.label = TRUE,
-         linecol = c("red", "black"), ...){
+function(datainput,                    # The correlation matrix, usually a lower matrix
+         n_breaks = 8,                 # Number of types of segments to show the correlation, note interval should <12
+         xlim = c(-2.5, 5),            # horizontal range of the canvas
+         ylim = c(-2.5, 2.5),          # vertical range of the canvas
+         node_size = 3,                # size of label
+         lwd.var = TRUE,               # logical, if the segments width should vary with the absolute value
+         lwd = 4,                      # width of the segments for connecting the sites, default 1
+         dit = 1.2,                    # Distance of text labels from each corner.
+         show.node = TRUE,              # Whether the nodes in the figure should be labeled
+         show.text.label = TRUE,            # Whether the text label should be drawn.
+         linecol = c("orange", "blue"), # Colours showing positve or negative correlation. The lines representing positive correlations use the first element
+         show.legend = TRUE,           # If the legend should be shown
+         valuename = "r",              # Name of the variable shown in the legend
+         legendx = 3,                  # the starting position of the legend x
+         legendy = 0,                  # the starting position of the legend y
+         legend_line_space = 1,        # the space between the lines in the legend
+         legend_linelength = 0.3,      # length of the segment in the legend
+         adjust_legend_x = 0,          # adjusting the position of legend (x)
+         adjust_legend_y = 0,          # adjusting the position of legend (y)
+         digits = 2,                   # Number of digits shown in the legend, it will be used in generating the breaks as well
+         ...                           # other parameters related with plot.default
+        ){
 
     datainput <- as.matrix(datainput)
+
+    if(any(is.na(datainput))){
+        stop("NA is not allowed")
+    }
+    if(n_breaks >= 12|n_breaks < 2){
+        stop("Number of intervals should be between 2 and 12")
+    }
     if (!nrow(datainput)==ncol(datainput)){
-        stop("The input is not a square matrix. \n")
+        stop("The input is not a correlative matrix.")
     }
-    if(!length(lty)== interval + 1){
-        stop("Number of line styles should be equal to number of intervals +1. \n")
-    }
-    if(nrow(datainput)>15){
-        cat("Warning: Too many points too draw. \n")
-    }
-    if (!is.matrix(datainput)){
-       if(!is.numeric(datainput)){
-         stop("Only numberic elements can be included in the correlation matrix. \n")
-         }
-    }
-     if (digits > 2){
-         cat("Warning: Using 1 or 2 Digits.")
-     }
     npoints = nrow(datainput)
     if (npoints > 10){
-        cat("Warning: Too many sites! \n")
+        warning("Too many sites to show! Please use matrix with few dimensions")
     }
 
     plot(0,0, xlim = xlim, ylim = ylim,
-         type = "n", axes = FALSE, xlab="", ylab="")
-    interval = interval
-    datainputd = as.dist(datainput)
-    seqn  <- (seq(0, interval^2, by = interval))/(interval^2)
-    limit0 <- round((min(datainputd) + (max(datainputd)-min(datainputd))*seqn), digits)
-    limit <- limit0[c(-1, -length(limit0))]
-    limit <- sort(limit, decreasing = TRUE)
+         type = "n", axes = FALSE, xlab="", ylab="", ...)
+
+    seqn  <- (seq(0, n_breaks^2, by = n_breaks))/(n_breaks^2)
+    datainput2 <- round(datainput * (1+0.01), digits = 2) # to expand to the range for the breaks so the maxim/minimum values could be included
+    limit0 <- sort((min(datainput2) + (max(datainput2)-min(datainput2))*seqn), decreasing = TRUE)
 
     subangle <- 2*pi/npoints
+
     r=2
-    xdep <- c(); ydep <- c(); txdep <- c(); tydep <- c()
+
+    xdep <- c()
+    ydep <- c()
+    txdep <- c()
+    tydep <- c()
     for (k in 1:npoints){
         r = r
         x = r*sin(subangle * k)
@@ -55,68 +65,55 @@ function(datainput, interval = 8,
         tydep <- append(tydep, ty)
     }
 
+    xdep  <- na.omit(xdep )
+    ydep  <- na.omit(ydep )
+    txdep <- na.omit(txdep)
+    tydep <- na.omit(tydep)
+
     for (i in 1:length(xdep)){
         for (j in 1:length(ydep)){
-            if(datainput[i,j] >  0) color = linecol[1]
-            if(datainput[i,j] <= 0) color = linecol[2]
-            if (datainput[i,j] >= limit[1]){
-                segments(x0 = xdep[i], y0 = ydep[i], x1 = xdep[j], y1 = ydep[j],
-                         lty = lty[1], col= color, lwd = abs(datainput[i,j])*4)}
-                    if (datainput[i,j] <  limit[length(limit)]){
-                          segments(x0 = xdep[i], y0 = ydep[i], x1 = xdep[j],
-                             y1 = ydep[j], lty = lty[length(limit)+1],
-                             col= color, lwd = abs(datainput[i,j])*4)
-                        }else{
-                          for (n in 2:length(limit)){
-                                  if (datainput[i,j] <  limit[n-1] & datainput[i,j] >= limit[n]){
-                                       if (datainput[i,j] > 0) color = linecol[1]
-                                       if (datainput[i,j] < 0) color = linecol[2]
-                                       segments(x0 = xdep[i], y0 = ydep[i], x1 = xdep[j], y1 = ydep[j], lty = lty[n], col = color, lwd = abs(datainput[i,j])*4)
-                                     }
-                                 }
-                        }
-
+            colori <- ifelse(datainput[i,j] > 0, linecol[1], linecol[2])
+            for (m in 1:length(limit0)){
+                if(m != length(limit0)){
+                    if (datainput[i,j] <= limit0[m] & datainput[i,j] > limit0[m + 1]){
+                        segments(x0 = xdep[i], y0 = ydep[i], x1 = xdep[j], y1 = ydep[j],
+                             lty = m, col= colori, lwd = ifelse(lwd.var, lwd*abs(datainput[i,j]), lwd))
+                    }
+                 }
+            }
         }
     }
 
-   if(number.label){
-       points(xdep, ydep, cex=cex, pch = 21, bg = "white", lwd = lwd,)
-       text(xdep, ydep, 1:npoints)
+   if(show.node){
+       points(xdep, ydep, cex=node_size, pch = 21, bg = "white", lwd = lwd/2)
+       text(xdep, ydep, 1:npoints, cex = node_size/4)
    }
-   if(text.label){
+   if(show.text.label){
        text(txdep, tydep, colnames(datainput))
    }
-
    if(show.legend){
-       for (k in 1:length(limit)){
-          if (limit[k] > 0){
-               col = linecol[1]
-               }else{
-               col = linecol[2]
-               }
-          if (k == 1){
-            text (legendx + right, legendy, formatC(paste(value ,">=",
-                  sprintf("%.2f",limit[k])), width =10), )
-            segments(legendx - left, legendy, legendx- left +
-                             linelength, legendy, lty = lty[k],
-                             col = col, lwd = limit[k]*4)
-          }
-          if (k == length(limit)){
-            text (legendx + right, legendy-intcept*k,
-              formatC(paste(value ,"<", sprintf("%.2f",
-              limit[k])), width = 10))
-            segments(legendx- left, legendy-intcept*k,
-              legendx- left + linelength, legendy-intcept*k,
-              lty = lty[k+1], col = col, lwd = abs(limit[k])*4)
-            } else {
-              text (legendx + right, legendy-intcept*k,
-              formatC(paste(sprintf("%.2f",limit[k+1]),"=<",value ,"<",
-               sprintf("%.2f",limit[k])),width = 10))
-              segments(legendx- left, legendy-intcept*k,
-                legendx- left + linelength, legendy-intcept*k,
-                lty = lty[k+1], col = col, lwd = abs(limit[k])*4)
-                      }
+       for (n in 1:(length(limit0))){
+            col_n <- ifelse(mean(limit0[n] + limit0[n+1]) > 0, linecol[1], linecol[2] )
 
-         }
+            segments(legendx + adjust_legend_x,                     legendy-legend_line_space*n*0.25 + adjust_legend_y,
+                     legendx + adjust_legend_x + legend_linelength, legendy-legend_line_space*n*0.25 + adjust_legend_y,
+                     lty = n,
+                     col = col_n,
+                     lwd = ifelse(lwd.var, abs(mean(limit0[n] + limit0[n+1]))*lwd, lwd)
+                     )
+            if(n < length(limit0)){
+    
+                if(n != length(limit0) - 1){
+                     text(legendx + adjust_legend_x + 1/5 + 0.5 + legend_linelength, legendy - legend_line_space*n*0.25 + adjust_legend_y, paste(formatC(sprintf("%.2f", limit0[n+1]), width = 5)))
+                     text(legendx + adjust_legend_x + 2/5 + 0.5 + legend_linelength, legendy - legend_line_space*n*0.25 + adjust_legend_y, expression(""<""))
+                 }
+                text(legendx + adjust_legend_x + 3/5 + 0.5 + legend_linelength, legendy - legend_line_space*n*0.25 + adjust_legend_y, valuename)
+                
+                if(n != 1){
+                    text(legendx + adjust_legend_x + 4/5 + 0.5 + legend_linelength, legendy - legend_line_space*n*0.25 + adjust_legend_y, expression(""<=""))
+                    text(legendx + adjust_legend_x + 5/5 + 0.5 + legend_linelength, legendy - legend_line_space*n*0.25 + adjust_legend_y, paste(formatC(sprintf("%.2f", limit0[n]), width = 5)))
+                }
+            }
+          }
     }
 }
