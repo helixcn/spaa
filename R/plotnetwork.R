@@ -6,19 +6,21 @@ function(datainput,                    # The correlation matrix, usually a lower
          node_size = 3,                # size of label
          lwd.var = TRUE,               # logical, if the segments width should vary with the absolute value
          lwd = 4,                      # width of the segments for connecting the sites, default 1
-         label_dist = 1.2,                    # Distance of text labels from each corner.
-         show.node = TRUE,              # Whether the nodes in the figure should be labeled
-         show.text.label = TRUE,            # Whether the text label should be drawn.
-         linecol = c("orange", "blue"), # Colours showing positve or negative correlation. The lines representing positive correlations use the first element
+         label_dist = 1.2,             # Distance of text labels from each corner.
+         show.node = TRUE,             # Whether the nodes in the figure should be labeled
+         show.text.label = TRUE,       # Whether the text label should be drawn.
+         linecol = c("orange", "blue"),# Colours showing positve or negative correlation.
+         # The lines representing positive correlations use the first element
          show.legend = TRUE,           # If the legend should be shown
          valuename = "r",              # Name of the variable shown in the legend
          legendx = 3,                  # the starting position of the legend x
-         legendy = -2,                  # the starting position of the legend y
+         legendy = -2,                 # the starting position of the legend y
          legend_line_space = 1,        # the space between the lines in the legend
          legend_linelength = 0.3,      # length of the segment in the legend
          adjust_legend_x = 0,          # adjusting the position of legend (x)
          adjust_legend_y = 0,          # adjusting the position of legend (y)
-         digits = 2,                   # Number of digits shown in the legend, it will be used in generating the breaks as well
+         digits = 2,                   # Number of digits shown in the legend, 
+         # it will be used in generating the breaks as well
          ...                           # other parameters related with plot.default
         ){
 
@@ -35,7 +37,7 @@ function(datainput,                    # The correlation matrix, usually a lower
     }
     npoints = nrow(datainput)
     if (npoints > 10){
-        warning("Too many sites to show! Please use matrix with few dimensions")
+        warning("Too many sites to show! Please use matrix with fewer (e.g., <10) dimensions")
     }
 
     plot(0,0, xlim = xlim, ylim = ylim,
@@ -64,9 +66,6 @@ function(datainput,                    # The correlation matrix, usually a lower
         txdep <- append(txdep, tx)   # Position for labels x
         tydep <- append(tydep, ty)   # Position for labels y
     }
-
-    # xdep <- c(xdep, xdep[1]) # Including the starting point
-    # ydep <- c(ydep, ydep[1]) # Including the starting point
 
     ltys <- sort(1:n_levels, decreasing = TRUE)
 
@@ -114,22 +113,34 @@ function(datainput,                    # The correlation matrix, usually a lower
                      legendy + legend_line_space * n * 0.25 + adjust_legend_y,
                      lty = ltys[n],
                      #col = col_n,
-                     lwd = ifelse(lwd.var, 
-                                  ifelse(abs(mean(limit0[n:(n+1)]))*lwd < 0.01, 
-                                              0.1, 
-                                              abs(mean(limit0[n:(n+1)]))*lwd), 
+                     lwd = ifelse(lwd.var,
+                                  ifelse(abs(mean(limit0[n:(n+1)]))*lwd < 0.01,
+                                              0.1,
+                                              abs(mean(limit0[n:(n+1)]))*lwd),
                                               lwd)
                      )
             if(n < length(limit0)){
 
-                     text(legendx + adjust_legend_x + 5/4 + 0.5 + legend_linelength, legendy + legend_line_space*n*0.25 + adjust_legend_y, paste(formatC(sprintf("%.2f", limit0[n+1]), width = 5)))
-                     text(legendx + adjust_legend_x + 4/4 + 0.5 + legend_linelength, legendy + legend_line_space*n*0.25 + adjust_legend_y, expression(""<""))
+                    text(legendx + adjust_legend_x + 5/4 + 0.5 + legend_linelength, 
+                     legendy + legend_line_space*n*0.25 + adjust_legend_y, 
+                     paste(formatC(sprintf("%.2f", limit0[n+1]), width = 5)))
 
-                     text(legendx + adjust_legend_x + 3/4 + 0.5 + legend_linelength, legendy + legend_line_space*n*0.25 + adjust_legend_y, valuename)
+                    text(legendx + adjust_legend_x + 4/4 + 0.5 + legend_linelength, 
+                     legendy + legend_line_space*n*0.25 + adjust_legend_y, 
+                     expression(""<""))
+
+                    text(legendx + adjust_legend_x + 3/4 + 0.5 + legend_linelength, 
+                     legendy + legend_line_space*n*0.25 + adjust_legend_y, 
+                     valuename)
 
 
-                    text(legendx + adjust_legend_x + 2/4 + 0.5 + legend_linelength, legendy + legend_line_space*n*0.25 + adjust_legend_y, expression(""<=""))
-                    text(legendx + adjust_legend_x + 1/4 + 0.5 + legend_linelength, legendy + legend_line_space*n*0.25 + adjust_legend_y, paste(formatC(sprintf("%.2f", limit0[n]), width = 5)))
+                    text(legendx + adjust_legend_x + 2/4 + 0.5 + legend_linelength, 
+                    legendy + legend_line_space*n*0.25 + adjust_legend_y, 
+                    expression(""<=""))
+
+                    text(legendx + adjust_legend_x + 1/4 + 0.5 + legend_linelength, 
+                    legendy + legend_line_space*n*0.25 + adjust_legend_y, 
+                    paste(formatC(sprintf("%.2f", limit0[n]), width = 5)))
 
             }
           }
