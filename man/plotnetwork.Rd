@@ -7,14 +7,14 @@ Plot correlation network (Deprecated)
 Plotting correlation network showing the relationship between each pair of sites connected by segments. The points are arranged in a circle.
 }
 \usage{
-plotnetwork(datainput, n_levels = 8, xlim = c(-2.5, 5),
+plotnetwork(datainput, n_levels = 6, xlim = c(-2.5, 5),
     ylim = c(-2.5, 2.5), node_size = 3, lwd.var = TRUE,
     lwd = 4, label_dist = 1.2,
     show.node = TRUE, show.text.label = TRUE,
     linecol = c("orange", "blue"),show.legend = TRUE,
     valuename = "r", legendx = 3,
-    legendy = 0, legend_line_space = 1,
-    legend_linelength = 0.3,     adjust_legend_x = 0,
+    legendy = -2, legend_line_space = 1,
+    legend_linelength = 0.3, adjust_legend_x = 0,
     adjust_legend_y = 0,digits = 2, ... )
 }
 \arguments{
