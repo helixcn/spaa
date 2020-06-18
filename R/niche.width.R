@@ -35,7 +35,7 @@ function(mat, method = c("shannon","levins")){
        mat <- as.data.frame(mat)
     }
     if(ncol(mat) < 2){
-       stop("The input data contain less than two species, cannot compute niche overlap")
+       stop("The input dataset contains less than two species, cannot compute niche overlap")
     }
     match.arg(method)
     if(method == "shannon"){
