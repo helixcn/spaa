@@ -7,9 +7,9 @@ Plot correlation network (Deprecated)
 Plotting correlation network showing the relationship between each pair of sites connected by segments. The points are arranged in a circle.
 }
 \usage{
-plotnetwork(datainput, n_breaks = 8, xlim = c(-2.5, 5),
+plotnetwork(datainput, n_levels = 8, xlim = c(-2.5, 5),
     ylim = c(-2.5, 2.5), node_size = 3, lwd.var = TRUE,
-    lwd = 4, dit = 1.2,
+    lwd = 4, label_dist = 1.2,
     show.node = TRUE, show.text.label = TRUE,
     linecol = c("orange", "blue"),show.legend = TRUE,
     valuename = "r", legendx = 3,
@@ -21,7 +21,7 @@ plotnetwork(datainput, n_breaks = 8, xlim = c(-2.5, 5),
   \item{datainput}{
 The correlation matrix, usually a lower matrix
 }
-  \item{n_breaks}{
+  \item{n_levels}{
     Number of types of segments to show the correlation, note interval should <12
     }
   \item{xlim}{
@@ -36,8 +36,8 @@ The correlation matrix, usually a lower matrix
   \item{lwd}{
     width of the segments for connecting the sites, default 1
     }
-  \item{dit}{
-    Distance of text labels from each corner.
+  \item{label_dist}{
+    Distance of text labels from each node.
     }
   \item{show.node}{
     Whether the nodes in the figure should be labeled
