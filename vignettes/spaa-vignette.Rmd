@@ -4,10 +4,18 @@ author: "Jinlong Zhang"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Analysing species association and niche overlap using the spaa R package}
+  %\VignetteIndexEntry{Calculating species association and niche overlap using the spaa R package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
 
 This tutorial is based on a post (in Chinese) available at: <http://blog.sciencenet.cn/blog-255662-1239853.html>
 
