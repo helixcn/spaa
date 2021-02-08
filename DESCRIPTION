@@ -11,6 +11,7 @@ Description: Miscellaneous functions for analyzing species association
         and niche overlap.
 License: GPL (>= 2)
 LazyLoad: yes
-Suggests: vegan
+Suggests: vegan, knitr, rmarkdown
+VignetteBuilder: knitr
 URL: https://github.com/helixcn/spaa
 NeedsCompilation: no
