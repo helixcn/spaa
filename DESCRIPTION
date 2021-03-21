@@ -1,13 +1,13 @@
 Package: spaa
 Type: Package
 Title: SPecies Association Analysis
-Version: 0.3.3
-Date: 2020-06-18
+Version: 0.5.0
+Date: 2021-03-20
 Authors@R: person("Jinlong", "Zhang", role = c("aut", "cre"),
              email = "jinlongzhang01@gmail.com")
 Author: Jinlong Zhang [aut, cre]
 Maintainer: Jinlong Zhang <jinlongzhang01@gmail.com>
-Description: Miscellaneous functions for analyzing species association
+Description: Miscellaneous functions for analysing species association
         and niche overlap.
 License: GPL (>= 2)
 LazyLoad: yes

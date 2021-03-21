@@ -302,11 +302,11 @@ Indicating whether the species association is positive (\>0) or negative (\<0)
 
 ![Equation 12](./equations/clip_image012.png){width="308"}
 
--   If `b*c > a*d`, and `d >= a`, then (Equation 13):
+-   If `a*d < b*c` and `d >= a`, then (Equation 13):
 
 ![Equation 13](./equations/clip_image013.png){width="309"}
 
--   If `b*c > a*d` and `d < a`, then (Equation 14):
+-   If ` a*d < b*c` and `d < a`, then (Equation 14):
 
 ![Equation 14](./equations/clip_image014.png){width="308"}
 
