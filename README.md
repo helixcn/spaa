@@ -1,4 +1,4 @@
-## Welcome to the Homepage of R Package spaa
+# Welcome to the Homepage of R Package spaa
 
 spaa is an R package, to install it, please use the following command in R:
 
