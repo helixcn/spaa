@@ -45,13 +45,13 @@ Dice index: \code{Dice = 2*a/(2*a + b + c)}
 
 The Association Coefficient(\code{AC}):
 
-if \code{a*d>= b*c}:
+if \code{a*d >= b*c}:
 
     \code{AC = (a*d - b*c)/((a+b)*(b+d))}
 
 if \code{a*d < b*c  and a <= d}:
 
-    \code{AC=(a*d - b*c)/((a+b)*(a+c))}
+    \code{AC = (a*d - b*c)/((a+b)*(a+c))}
 
 if \code{a*d < b*c and a > d}:
 
@@ -79,15 +79,17 @@ Point correlation coefficient
 
 }
 \references{
-Hurlbert, S. H. (1969). A coefficient of interspecific association. Ecology, 50(1), 1-9.
 
-WANG, B. S., & PENG S. L. (1985). Studies on the Measuring Techniques of Interspecific Association of Lower-Subtropical Evergreen-Broadleaved Forests. I. The Exploration and the Revision on the Measuring Formulas of Interspecific Association. Chinese Journal of Plant Ecology, 9(4), 274.
+HURLBERT, S. H. (1969). A coefficient of interspecific association. Ecology, 50(1), 1-9.
+
+WANG, B. S., & PENG S. L. (1985). Studies on the Measuring Techniques of Interspecific Association of Lower-Subtropical Evergreen-Broadleaved Forests. I. The Exploration and the Revision on the Measuring Formulas of Interspecific Association. Chinese Journal of Plant Ecology, 9(4), 274-285.
 
 JIAN, M. F., LIU, Q. J., ZHU, D., & YOU, H. (2009). Inter-specific correlations among dominant populations of tree layer species in evergreen broad-leaved forest in Jiulianshan Mountain of subtropical China. Chinese Journal of Plant Ecology, 33(4), 672-680.
 
 ZHOU, X. Y., WANG, B. S., LI, M. G., & ZAN, Q. J. (2000). An analysis of interspecific associations in secondary succession forest communities in Heishiding Natural Reserve, Guangdong Province. Chinese Journal of Plant Ecology, 24(3), 332-339
 
 }
+
 \author{
 Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
@@ -95,6 +97,7 @@ Jinlong Zhang \email{jinlongzhang01@gmail.com}
 \seealso{
 See Also as \code{\link{sp.assoc}} for computing association for all the species.
 }
+
 \examples{
 data(testdata)
 spmatrix <- data2mat(testdata)

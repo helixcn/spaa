@@ -35,8 +35,8 @@ sp.pair <- function(matr){
                temp_contigent_tab  <- table(temp_occurrence_sp1, temp_occurrence_sp2)
 
                a <- temp_contigent_tab[2,2] # number of plots in which both sp1 and sp2 are present
-               b <- temp_contigent_tab[1,2] # number of plots in which sp1 is present, sp2 is absent
-               c <- temp_contigent_tab[2,1] # number of plots in which sp1 is absent, sp2 is present
+               b <- temp_contigent_tab[2,1] # number of plots in which sp1 is present, sp2 is absent
+               c <- temp_contigent_tab[1,2] # number of plots in which sp1 is absent, sp2 is present
                d <- temp_contigent_tab[1,1] # number of plots in which both sp1 and sp2 are absent
 
                # Thanks for Ms Xueni Zhang for pointing out the error
