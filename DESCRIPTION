@@ -1,8 +1,8 @@
 Package: spaa
 Type: Package
 Title: SPecies Association Analysis
-Version: 0.5.0
-Date: 2021-03-20
+Version: 0.5.1
+Date: 2021-03-24
 Authors@R: person("Jinlong", "Zhang", role = c("aut", "cre"),
              email = "jinlongzhang01@gmail.com")
 Author: Jinlong Zhang [aut, cre]
@@ -11,7 +11,7 @@ Description: Miscellaneous functions for analysing species association
         and niche overlap.
 License: GPL (>= 2)
 LazyLoad: yes
-Suggests: vegan, knitr, rmarkdown
+Suggests: vegan, knitr, rmarkdown, reshape2
 VignetteBuilder: knitr
 URL: https://github.com/helixcn/spaa
 NeedsCompilation: no

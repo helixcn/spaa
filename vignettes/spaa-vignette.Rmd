@@ -208,19 +208,27 @@ sp.assoc(spmatrix)
 
 #### 1. Variance of species relative frequency (Equation 1) `sigmaTsq`:
 
-![Equation 1](./equations/clip_image001.png){width="241"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image001.png")
+```
 
 #### 2. Variance of the number of species (Equation 2) `STsq`
 
-![Equation 2](./equations/clip_image002.png){width="253"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image002.png")
+```
 
 #### 3. Species' relative frequency (Equation 3) `pi`
 
-![Equation 3](./equations/clip_image003.png){width="180"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image003.png")
+```
 
 #### 4. Variance ratio (Equation 4) `var.ratio`
 
-![Equation 4](./equations/clip_image004.png){width="198"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image004.png")
+```
 
 -   If *VR* \> 1, positive correlation
 -   if *VR* \< 1, negative correlation
@@ -229,7 +237,9 @@ sp.assoc(spmatrix)
 
 The *W* statistic is used to test the significance of the variance ratio (Qianmei Zhang et al., 2006) with 95% confidence intervals of Chi 0.95,N2 \< *W* \< Chi 0.05, N2
 
-![Equation 5](./equations/clip_image005.png){width="293"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image005.png")
+```
 
 In Equations 1-5, *N* is the number of plots, *S* is the total number of species, *n* is the number of plots occupied by a species, *T_j* is the number of species in each plot, and *t* is the average of the number of species in all plots.
 
@@ -272,51 +282,73 @@ The equations are shown below:
 
 Note: - `chisqass` is the Chi-square - `chisq` is the Chi-square with Yates' correction for small samples (Kent M., 2012, page 114)
 
-![Equation 6](./equations/clip_image006.png){width="533"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image006.png")
+```
 
 #### 2. V ratio (Equation 7) `V`
 
-![Equation 7](./equations/clip_image007.png){width="344"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image007.png")
+```
 
 Indicating whether the species association is positive (\>0) or negative (\<0)
 
 #### 3. Jaccard's index (Equation 8) `Jaccard`:
 
-![Equation 8](./equations/clip_image008.png){width="326"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image008.png")
+```
 
 #### 4. Ochiai index (Equation 9) `Ochiai`:
 
-![Equation 9](./equations/clip_image009.png){width="341"}
+```{R echo=FALSE, message=FALSE}
+knitr::include_graphics("clip_image009.png")
+```
 
 #### 5. Dice Index (Equation 10) `Dice`:
 
-![Equation 10](./equations/clip_image010.png){width="270"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image010.png")
+```
 
 #### 6. *PCC*: Point Correlation Coefficient `PCC` (Equation 11)
 
-![Equation 11](./equations/clip_image011.png){width="527"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image011.png")
+```
 
 #### 7. *AC* Association coefficient (Equation 12) `AC`
 
 -   If `a*d >= b*c`:
 
-![Equation 12](./equations/clip_image012.png){width="308"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image012.png")
+```
 
 -   If `a*d < b*c` and `d >= a`, then (Equation 13):
 
-![Equation 13](./equations/clip_image013.png){width="309"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image013.png")
+```
 
 -   If ` a*d < b*c` and `d < a`, then (Equation 14):
 
-![Equation 14](./equations/clip_image014.png){width="308"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image014.png")
+```
 
 #### 8. Spearman's rank correlation coefficient `Spearman` (Equation 15)
 
-![Equation 15](./equations/clip_image015.png){width="505"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image015.png")
+```
 
 #### 9. Pearson's correlation coefficient `Pearson` (Equation 16)
 
-![Equation 16](./equations/clip_image016.png){width="518"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image016.png")
+```
 
 ## 3.3 Calculating niche width
 
@@ -324,11 +356,15 @@ Niche width is commonly measured by the Levins or Shannon indices.
 
 ### 1. Levins niche width index (Equation 17)
 
-![Equation 17](./equations/clip_image017.png){width="183"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image017.png")
+```
 
 ### 2. Shannon's niche width index (Equation 18)
 
-![Equation 18](./equations/clip_image018.png){width="193"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image018.png")
+```
 
 where *B_i* is the niche width of the *i*th species, *j* denotes jth plot, and *r* denotes the number of plots.
 
@@ -340,31 +376,43 @@ The function `niche.width()` can calculate the niche width of each species. The 
 
 ### 1. Levin's niche overlap index (Equation 19)
 
-![Equation 19](./equations/clip_image019.png){width="244"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image019.png")
+```
 
 ### 2. Schoener's niche overlap index (Equation 20)
 
-![Equation 20](./equations/clip_image020.png){width="200"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image020.png")
+```
 
 ### 3. Petraitis's niche overlap index (Equation 21)
 
-![Equation 21](./equations/clip_image021.png){width="575"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image021.png")
+```
 
 ### 4. Pianka's niche overlap index (Equation 22)
 
-![Equation 22](./equations/clip_image022.png){width="259"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image022.png")
+```
 
 ### 5. Czechanowski's niche overlap index (Equation 23)
 
-![Equation 23](./equations/clip_image023.png){width="269"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image023.png")
+```
 
 ### 6. the simplified Morisita index (Equation 24)
 
-![Equation 24](./equations/clip_image024.png){width="265"}
+```{R echo=FALSE}
+knitr::include_graphics("clip_image024.png")
+```
 
 where *O_ik* is the niche overlap of species *i* and species*k*, *P_ij* and *P_kj* are the number of individuals of species *i* and species *k* in the *j*th sample, respectively, *r* is the total number of plots (sites), and *e* is the base of the natural logarithm.
 
-Example:
+## Example:
 
 ```r
 data(datasample)
@@ -398,7 +446,7 @@ where `mat` is the input species distribution matrix. `method` is the niche over
 
 `niche.overlap.boot()` is a wrapper of `niche.overlap.boot.pair()`. In most cases, users do not need to call `niche.overlap.boot.pair()`.
 
-![Confidence intervals of species niche overlap analysis](./equations/boot.jpg)
+![Confidence intervals of species niche overlap analysis](boot.jpg)
 
 The columns are as follows.
 
@@ -417,7 +465,10 @@ Note: If a species is missing, NaN will appear during in the bootstrap results, 
 
 The spaa package also provides some functions for visualising the results of species association.
 
-![semi-matrix visualized by the plotlowertri() function](./equations/correlation.jpeg)
+
+```{R echo=FALSE}
+knitr::include_graphics("correlation.jpeg")
+```
 
 The arguments are:
 
@@ -436,7 +487,11 @@ A correlation coefficient matrix or a distance matrix could easily be visuallize
 
 Networks can be used to show the interconnectedness of species, i.e., in different colors, line widths, or line styles connecting the species to another other, or the similarity of species composition between sites. spaa's `plotnetwork()` can visualize the relationship (Figure 3). However, network plot should not be used to represent the relationship between a large number of species, for example, more than 10, it could be too crowded.
 
-![A network plot generated using `plotnetwork()`](./equations/network.jpeg)
+```{R echo=FALSE}
+knitr::include_graphics("network.jpeg")
+```
+
+A network plot generated using `plotnetwork()`
 
 ## 3.7 Other functions
 
