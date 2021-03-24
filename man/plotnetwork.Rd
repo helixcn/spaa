@@ -102,7 +102,12 @@ plotnetwork(result$Pearson)
 
 plotnetwork(result$Pearson, linecol = c("red", "black"))
 
-plotnetwork(result$Pearson, n_levels = 4,  node_size = 4,  lwd.var = FALSE, label_dist = 0.8, show.node = FALSE, show.text.label = FALSE, linecol = c("red", "black"), show.legend = TRUE, valuename = "r", legendx = 3, legend_line_space = 0.5, legend_linelength = 0.5, adjust_legend_x = -1)
+plotnetwork(result$Pearson, n_levels = 4,  node_size = 4,  
+    lwd.var = FALSE, label_dist = 0.8, show.node = FALSE, 
+    show.text.label = FALSE, linecol = c("red", "black"), 
+    show.legend = TRUE, valuename = "r", legendx = 3, 
+    legend_line_space = 0.5, legend_linelength = 0.5, 
+    adjust_legend_x = -1)
 
 title("Pearson Correlation Network")
 }

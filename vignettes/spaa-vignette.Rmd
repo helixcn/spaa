@@ -446,6 +446,8 @@ the `sub.sp.matrix(spmatrix, freq = 0.5, common = NULL)` can select the species 
 
 ### 3.7.2 Other useful functions
 
+Note: These functions were available before the version 0.2.0, but have been removed from the development. I am planning to re-include them in `spaa` in the near future.
+
 -   `lgeodist()`, `geodist()` calculates the great circle distance between two locations given their latitude and longitude;
 -   `deg2dec()` converts degrees, minutes and seconds to decimal degrees;
 -   `dist2list()` converts distance matrix to a data.frame, similar to `simba::liste()`
