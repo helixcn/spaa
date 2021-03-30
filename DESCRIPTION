@@ -1,8 +1,8 @@
 Package: spaa
 Type: Package
 Title: SPecies Association Analysis
-Version: 0.5.1
-Date: 2021-03-24
+Version: 0.5.3
+Date: 2021-03-30
 Authors@R: person("Jinlong", "Zhang", role = c("aut", "cre"),
              email = "jinlongzhang01@gmail.com")
 Author: Jinlong Zhang [aut, cre]

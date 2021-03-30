@@ -1,4 +1,39 @@
 sp.pair <- function(matr){
+   
+   format_contigent_tab <- function(aaa){
+      temp_mat <- rep(0, 4) 
+      dim(temp_mat) <- c(2, 2)
+      
+      tab_row_name <- rownames(aaa)
+      tab_col_name <- colnames(aaa)
+      
+      for (i in 1:nrow(aaa)){
+         for (j in 1:ncol(aaa)){
+            if(tab_row_name[i] == "0" & tab_col_name[j] == "0"){
+               temp_mat[1,1] <- aaa[i, j]
+            }
+            
+            if(tab_row_name[i] == "0" & tab_col_name[j] == "1"){
+               temp_mat[1,2] <- aaa[i, j]
+            }
+            
+            if(tab_row_name[i] == "1" & tab_col_name[j] == "0"){
+               temp_mat[2,1] <- aaa[i, j]
+            }
+            
+            if(tab_row_name[i] == "1" & tab_col_name[j] == "1"){
+               temp_mat[2,2] <- aaa[i, j]
+            }
+            
+         }
+      }
+      
+      rownames(temp_mat) <- c("sp1_absent", "sp1_present")
+      colnames(temp_mat) <- c("sp2_absent", "sp2_present")
+      
+      return(temp_mat)
+   }
+   
       if (any(is.na(matr))) {
          matr <- na.omit(matr)
          cat("Rows containing NA have been removed.\n")
@@ -30,9 +65,10 @@ sp.pair <- function(matr){
       for (i in 1:ncol(matr)) {
          if(i < ncol(matr)){
             for (j in (i+1):ncol(matr)){
-               temp_occurrence_sp1 <- matr[,i]
-               temp_occurrence_sp2 <- matr[,j]
-               temp_contigent_tab  <- table(temp_occurrence_sp1, temp_occurrence_sp2)
+               sp1 <- matr[,i]
+               sp2 <- matr[,j]
+               
+               temp_contigent_tab <- format_contigent_tab(table(sp1,sp2))
 
                a <- temp_contigent_tab[2,2] # number of plots in which both sp1 and sp2 are present
                b <- temp_contigent_tab[2,1] # number of plots in which sp1 is present, sp2 is absent
